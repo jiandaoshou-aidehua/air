@@ -18,17 +18,17 @@ Cars in AirSim
 ## How to Get It
 
 ### Windows
-[![Build Status](https://github.com/microsoft/AirSim/actions/workflows/test_windows.yml/badge.svg)](https://github.com/microsoft/AirSim/actions/workflows/test_windows.yml)
-* [Download binaries](https://github.com/Microsoft/AirSim/releases)
+[![Build Status](https://github.com/OpenHUTB/air/actions/workflows/test_windows.yml/badge.svg)](https://github.com/OpenHUTB/air/actions/workflows/test_windows.yml)
+* [Download binaries](https://github.com/OpenHUTB/air/releases)
 * [Build it](https://microsoft.github.io/AirSim/build_windows)
 
 ### Linux
-[![Build Status](https://github.com/microsoft/AirSim/actions/workflows/test_ubuntu.yml/badge.svg)](https://github.com/microsoft/AirSim/actions/workflows/test_ubuntu.yml)
-* [Download binaries](https://github.com/Microsoft/AirSim/releases)
+[![Build Status](https://github.com/OpenHUTB/air/actions/workflows/test_ubuntu.yml/badge.svg)](https://github.com/OpenHUTB/air/actions/workflows/test_ubuntu.yml)
+* [Download binaries](https://github.com/OpenHUTB/air/releases)
 * [Build it](https://microsoft.github.io/AirSim/build_linux)
 
 ### macOS
-[![Build Status](https://github.com/microsoft/AirSim/actions/workflows/test_macos.yml/badge.svg)](https://github.com/microsoft/AirSim/actions/workflows/test_macos.yml)
+[![Build Status](https://github.com/OpenHUTB/air/actions/workflows/test_macos.yml/badge.svg)](https://github.com/OpenHUTB/air/actions/workflows/test_macos.yml)
 * [Build it](https://microsoft.github.io/AirSim/build_macos)
 
 For more details, see the [use precompiled binaries](docs/use_precompiled.md) document. 
@@ -108,7 +108,7 @@ More technical details are available in [AirSim paper (FSR 2017 Conference)](htt
 
 ### Contribute
 
-Please take a look at [open issues](https://github.com/microsoft/airsim/issues) if you are looking for areas to contribute to.
+Please take a look at [open issues](https://github.com/OpenHUTB/air/issues) if you are looking for areas to contribute to.
 
 * [More on AirSim design](https://microsoft.github.io/AirSim/design)
 * [More on code structure](https://microsoft.github.io/AirSim/code_structure)
@@ -116,11 +116,11 @@ Please take a look at [open issues](https://github.com/microsoft/airsim/issues) 
 
 ### Who is Using AirSim?
 
-We are maintaining a [list](https://microsoft.github.io/AirSim/who_is_using) of a few projects, people and groups that we are aware of. If you would like to be featured in this list please [make a request here](https://github.com/microsoft/airsim/issues).
+We are maintaining a [list](https://microsoft.github.io/AirSim/who_is_using) of a few projects, people and groups that we are aware of. If you would like to be featured in this list please [make a request here](https://github.com/OpenHUTB/air/issues).
 
 ## Contact
 
-Join our [GitHub Discussions group](https://github.com/microsoft/AirSim/discussions) to stay up to date or ask any questions.
+Join our [GitHub Discussions group](https://github.com/OpenHUTB/air/discussions) to stay up to date or ask any questions.
 
 We also have an AirSim group on [Facebook](https://www.facebook.com/groups/1225832467530667/). 
 
@@ -142,7 +142,7 @@ For complete list of changes, view our [Changelog](docs/CHANGELOG.md)
 
 ## FAQ
 
-If you run into problems, check the [FAQ](https://microsoft.github.io/AirSim/faq) and feel free to post issues in the  [AirSim](https://github.com/Microsoft/AirSim/issues) repository.
+If you run into problems, check the [FAQ](https://microsoft.github.io/AirSim/faq) and feel free to post issues in the  [AirSim](https://github.com/OpenHUTB/air/issues) repository.
 
 ## Code of Conduct
 
