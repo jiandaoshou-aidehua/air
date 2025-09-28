@@ -10,15 +10,14 @@ set "buildMode="
 REM //check VS version
 if "%VisualStudioVersion%" == "" (
     echo(
-    echo oh oh... You need to run this command from x64 Native Tools Command Prompt for VS 2022.
+    echo oh oh... You need to run this command from x64 Native Tools Command Prompt for VS 2019/2022.
     goto :buildfailed_nomsg
 )
 if "%VisualStudioVersion%" lss "17.0" (
     echo(
-    echo Hello there! We just upgraded AirSim to Unreal Engine 4.27 and Visual Studio 2022.
+    echo Hello there! We just upgraded AirSim to Unreal Engine 4.27/4.26 and Visual Studio 2019/2022.
     echo Here are few easy steps for upgrade so everything is new and shiny:
     echo https://github.com/Microsoft/AirSim/blob/main/docs/unreal_upgrade.md
-    goto :buildfailed_nomsg
 )
 
 if "%1"=="" goto noargs
@@ -62,6 +61,28 @@ if ERRORLEVEL 1 (
   )
 )
 
+:: Prepare for VS 2019 project
+if exist "%ProgramFiles(x86)%\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat" (
+    echo Using VS 2019 project
+    xcopy /q /Y  AirLib\AirLib_VS2019.vcxproj  AirLib\AirLib.vcxproj
+    xcopy /q /Y  AirLibUnitTests\AirLibUnitTests_VS2019.vcxproj  AirLibUnitTests\AirLibUnitTests.vcxproj
+    xcopy /q /Y  DroneServer\DroneServer_VS2019.vcxproj  DroneServer\DroneServer.vcxproj
+    xcopy /q /Y  DroneShell\DroneShell_VS2019.vcxproj  DroneShell\DroneShell.vcxproj
+    xcopy /q /Y  Examples\Examples_VS2019.vcxproj  Examples\Examples.vcxproj
+    xcopy /q /Y  HelloCar\HelloCar_VS2019.vcxproj  HelloCar\HelloCar.vcxproj
+    xcopy /q /Y  HelloDrone\HelloDrone_VS2019.vcxproj  HelloDrone\HelloDrone.vcxproj
+    xcopy /q /Y  HelloSpawnedDrones\HelloSpawnedDrones_VS2019.vcxproj  HelloSpawnedDrones\HelloSpawnedDrones.vcxproj
+    xcopy /q /Y  MavLinkCom\MavLinkCom_VS2019.vcxproj  MavLinkCom\MavLinkCom.vcxproj
+    xcopy /q /Y  MavLinkCom\MavLinkTest\MavLinkTest_VS2019.vcxproj  MavLinkCom\MavLinkTest\MavLinkTest.vcxproj
+    xcopy /q /Y  SGM\src\sgmstereo\sgmstereo_VS2019.vcxproj  SGM\src\sgmstereo\sgmstereo.vcxproj
+    xcopy /q /Y  SGM\src\stereoPipeline\stereoPipeline_VS2019.vcxproj  SGM\src\stereoPipeline\stereoPipeline.vcxproj
+    xcopy /q /Y  Unity\AirLibWrapper\AirsimWrapper\AirsimWrapper_VS2019.vcxproj  Unity\AirLibWrapper\AirsimWrapper\AirsimWrapper.vcxproj
+    xcopy /q /Y  UnrealPluginFiles_2019.vcxproj  UnrealPluginFiles.vcxproj
+) else (
+    echo Using VS 2022 project.
+)
+
+
 REM //---------- get rpclib ----------
 IF NOT EXIST external\rpclib mkdir external\rpclib
 
@@ -99,7 +120,11 @@ REM //---------- Build rpclib ------------
 ECHO Starting cmake to build rpclib...
 IF NOT EXIST external\rpclib\%RPC_VERSION_FOLDER%\build mkdir external\rpclib\%RPC_VERSION_FOLDER%\build
 cd external\rpclib\%RPC_VERSION_FOLDER%\build
-cmake -G"Visual Studio 17 2022" ..
+if exist "%programfiles%\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat" (
+    cmake -G"Visual Studio 17 2022" ..
+) else (
+    cmake -G"Visual Studio 16 2019" ..
+)
 
 if "%buildMode%" == "" (
 cmake --build . 
