@@ -78,7 +78,7 @@ In the latest main branch of AirSim, the `simAddVehicle` API can be used to crea
 - `vehicle_type`: Type of vehicle, e.g. "simpleflight". Currently only SimpleFlight, PhysXCar, ComputerVision are supported, in their respective SimModes.
                   Other vehicle types including PX4 and ArduPilot-related aren't supported
 - `pose`: Initial pose of the vehicle
-- `pawn_path`: Vehicle blueprint path, default empty wbich uses the default blueprint for the vehicle type
+- `pawn_path`: Vehicle blueprint path, default empty which uses the default blueprint for the vehicle type
 
 Returns: `bool` Whether vehicle was created
 
