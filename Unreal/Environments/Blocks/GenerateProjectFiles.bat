@@ -1,7 +1,7 @@
 setlocal
 del /q gen_temp.txt
-echo %UE4_ROOT%\Engine\Binaries\Win64\UnrealVersionSelector.exe > gen_temp.tmp
-:: powershell -command "& { (Get-ItemProperty 'Registry::HKEY_CLASSES_ROOT\Unreal.ProjectFile\shell\rungenproj' -Name 'Icon' ).'Icon' } > gen_temp.tmp"
+:: echo %UE4_ROOT%\Engine\Binaries\Win64\UnrealVersionSelector.exe > gen_temp.tmp
+powershell -command "& { (Get-ItemProperty 'Registry::HKEY_CLASSES_ROOT\Unreal.ProjectFile\shell\rungenproj' -Name 'Icon' ).'Icon' } > gen_temp.tmp"
 type gen_temp.tmp > gen_temp.txt
 set /p gen_bin=<gen_temp.txt
 del /q gen_temp.tmp
