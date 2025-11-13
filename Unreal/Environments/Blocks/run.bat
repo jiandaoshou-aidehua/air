@@ -1,0 +1,1 @@
+start AbandonedPark -ResX=640 -ResY=360 -windowed
