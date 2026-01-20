@@ -45,8 +45,8 @@ if [ "$(uname)" == "Darwin" ]; then # osx
 else #linux
     # fix: Package vulkan-utils not found is displayed
     # https://github.com/microsoft/AirSim/issues/4866
-    wget -qO- https://packages.lunarg.com/lunarg-signing-key-pub.asc | sudo tee /etc/apt/trusted.gpg.d/lunarg.asc
-    sudo wget -qO /etc/apt/sources.list.d/lunarg-vulkan-jammy.list http://packages.lunarg.com/vulkan/lunarg-vulkan-jammy.list
+    # wget -qO- https://packages.lunarg.com/lunarg-signing-key-pub.asc | sudo tee /etc/apt/trusted.gpg.d/lunarg.asc
+    # sudo wget -qO /etc/apt/sources.list.d/lunarg-vulkan-jammy.list http://packages.lunarg.com/vulkan/lunarg-vulkan-jammy.list
     # sudo apt update
     sudo apt-get -y install --no-install-recommends \
         lsb-release \
@@ -54,7 +54,7 @@ else #linux
         software-properties-common \
         wget \
         libvulkan1 \
-        vulkan-tools
+        vulkan-utils
 
     #install clang and build tools
     VERSION=$(lsb_release -rs | cut -d. -f1)
@@ -64,7 +64,7 @@ else #linux
         wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
         sudo apt-get update
     fi
-    sudo apt-get install -y clang-11 clang++-11 libc++-11-dev libc++abi-11-dev
+    sudo apt-get install -y clang-10 clang++-10 libc++-dev libc++abi-dev
 fi
 
 if ! which cmake; then
