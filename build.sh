@@ -67,8 +67,8 @@ else
         export CC="gcc-11"
         export CXX="g++-11"
     else
-        export CC="clang-11"
-        export CXX="clang++-11"
+        export CC="/usr/bin/clang"
+        export CXX="/usr/bin/clang++"
     fi
 fi
 
