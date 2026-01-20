@@ -54,7 +54,7 @@ else #linux
         software-properties-common \
         wget \
         libvulkan1 \
-        vulkan-tools
+        vulkan-utils
 
     #install clang and build tools
     VERSION=$(lsb_release -rs | cut -d. -f1)
@@ -64,7 +64,7 @@ else #linux
         wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
         sudo apt-get update
     fi
-    sudo apt-get install -y clang-11 clang++-11 libc++-dev libc++abi-dev
+    sudo apt-get install -y clang-10 clang++-10 libc++-dev libc++abi-dev
 fi
 
 if ! which cmake; then
