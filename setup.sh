@@ -101,8 +101,6 @@ else #linux
     sudo apt-get install -y build-essential unzip
 
     if version_less_than_equal_to "$cmake_ver" "$MIN_CMAKE_VERSION"; then
-        # in ubuntu 18 docker CI, avoid building cmake from scratch to save time
-        # ref: https://apt.kitware.com/
         if [ "$(lsb_release -rs)" == "18.04" ]; then
             sudo apt-get -y install \
                 apt-transport-https \
@@ -130,7 +128,6 @@ else #linux
                 popd
             fi
         fi
-    
     else
         echo "Already have good version of cmake: $cmake_ver"
     fi
