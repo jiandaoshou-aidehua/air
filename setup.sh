@@ -48,13 +48,13 @@ else #linux
     # wget -qO- https://packages.lunarg.com/lunarg-signing-key-pub.asc | sudo tee /etc/apt/trusted.gpg.d/lunarg.asc
     # sudo wget -qO /etc/apt/sources.list.d/lunarg-vulkan-jammy.list http://packages.lunarg.com/vulkan/lunarg-vulkan-jammy.list
     # sudo apt update
-    sudo apt-get -y install --no-install-recommends \
-        lsb-release \
-        rsync \
-        software-properties-common \
-        wget \
-        libvulkan1 \
-        vulkan-utils
+    # sudo apt-get -y install --no-install-recommends \
+    #     lsb-release \
+    #     rsync \
+    #     software-properties-common \
+    #     wget \
+    #     libvulkan1 \
+    #     vulkan-utils
 
     #install clang and build tools
     VERSION=$(lsb_release -rs | cut -d. -f1)
@@ -64,7 +64,7 @@ else #linux
         wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
         sudo apt-get update
     fi
-    sudo apt-get install -y clang-10 clang++-10 libc++-dev libc++abi-dev
+   # sudo apt-get install -y clang-10 clang++-10 libc++-dev libc++abi-dev
 fi
 
 if ! which cmake; then
@@ -98,7 +98,7 @@ else #linux
     fi
 
     # install additional tools
-    sudo apt-get install -y build-essential unzip
+    # sudo apt-get install -y build-essential unzip
 
     if version_less_than_equal_to "$cmake_ver" "$MIN_CMAKE_VERSION"; then
         if [ "$(lsb_release -rs)" == "18.04" ]; then
